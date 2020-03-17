@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+</head>
+<body>
+    <ul>
+        
+            <% games.forEach((game) => { %>
+                <li>
+                    <%= game.name %>
+                    <button type="button" onclick="deleteGame(<%= game.id %>">Delete</button>
+                </li>
+            <% }); %>
+        <a href="/games/create">Add game</a>
+    </ul>
+    <script>
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+
+
+        function deleteGame(id){
+            console.log(id);
+            $.post('/games/delete'+ id, function(){
+                window.location.reload();
+            });
+        }
+    </script>
+</body>
+</html>
