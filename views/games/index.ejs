@@ -10,24 +10,31 @@
         
             <% games.forEach((game) => { %>
                 <li>
-                    <%= game.name %>
-                    <button type="button" onclick="deleteGame(<%= game.id %>">Delete</button>
+                    <a href="/games/update/<%= game.id %>"><%= game.name %></a>
+
+                    <button type="button" onclick="deleteGame(<%= game.id %>)">Borrar</button>
+
                 </li>
             <% }); %>
         <a href="/games/create">Add game</a>
     </ul>
-    <script>
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
 
-
-        function deleteGame(id){
+   <!-- <script>
+        function deleteGame(id) {
             console.log(id);
-            $.post('/games/delete'+ id, function(){
+            
+            $.post('/games/delete/' + id, function (){
+                //callback
                 window.location.reload();
             });
         }
-    </script>
+    </script> -->
+        <!-- /public/javascripts/index.js -->
+    <!-- src se cargan sin incluir el public -->
+    <script src="/javascripts/index.js"></script>
 </body>
 </html>
